@@ -1,0 +1,14 @@
+{
+  "name": "has",
+  "version": "0.0.1",
+  "homepage": "https://github.com/jaganathanb/has",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ]
+}

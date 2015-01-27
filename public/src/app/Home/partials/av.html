@@ -1,0 +1,35 @@
+<div class="col-md-9 col-sm-9 join-panel panel panel-default ">
+    <div class="panel-body">
+        <div class="pull-right">
+            <span ng-if="home.show">
+                <input type="text" class="" required ng-model="roomName" show>
+                <button ng-click="home.createRoom(roomName)">Create</button>
+                </span>
+            <span class="pull-right" ng-click="home.show=true">Create Room</span>
+        </div>
+        <dl ng-repeat="message in home.messages" ng-class="message.type" class="chat-messages">
+            <dd ng-if="message.type === 'joined'" class="success-text">
+                <span>{{message.user.name}} has joined the chat room! </span>
+            </dd>
+            <dd ng-if="message.type === 'left'" class="error-text">
+                <span>{{message.user.name}} has left the chat room! </span>
+            </dd>
+            <dd ng-if="message.type === 'message'" class="info-text">
+                <span>{{message.user.name}} says: </span> <span>{{message.message}}</span>
+            </dd>
+            <dd ng-if="message.type === 'self'">
+                <span>Welcom {{message.user.name}}!!!</span>
+            </dd>
+        </dl>
+    </div>
+    <div class="panel-heading container-fluid">
+        <form class="row-fluid" ng-submit="home.send()">
+            <p class="col-md-10">
+                <input type="text" class="form-control chat-text" ng-enable="home.isConnected" ng-model="home.message" placeholder="type here...">
+            </p>
+            <div class="col-md-2">
+                <button type="button" ng-enable="home.isConnected" ng-click="home.send()" class="btn btn-primary send">Send</button>
+            </div>
+        </form>
+    </div>
+</div>

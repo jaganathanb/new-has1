@@ -1,0 +1,37 @@
+{
+  "name": "T-Collab",
+  "version": "0.0.0",
+  "description": "T-Collab is an angular app backed by NodeJS for team chat/collabration",
+  "main": "main.js",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node",
+    "yui"
+  ],
+  "keywords": [
+    "chat",
+    "angularjs",
+    "nodejs",
+    "hapi",
+    "gulp",
+    "video",
+    "chat",
+    "team",
+    "collabration",
+    "t-collab"
+  ],
+  "authors": [
+    "Jaganathan B"
+  ],
+  "license": "MIT",
+  "homepage": "http://github.com/jaganathanb",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

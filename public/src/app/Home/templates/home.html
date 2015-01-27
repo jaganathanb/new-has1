@@ -1,0 +1,21 @@
+<section class="home" ng-controller="HomeController as home">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="join join-panel col-md-4 col-md-offset-4" ng-hide="home.readyToJoin">
+                <div class="text-center">
+                    <h1 class="header">{{home.title}}</h1>
+                    <div class="well">
+                        <form role="form">
+                            <div class="form-group">
+                                <label>{{home.formLabel}}</label>
+                                <input type="text" class="form-control name" ng-model="home.name" placeholder="Enter your name">
+                                <br/>
+                                <button type="button" class="btn btn-primary join" ng-click="home.connectToServer()">Let's GO</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,57 @@
+<div ng-controller="PublicController as public" class="container-fluid">
+    <div class="row-fluid">
+        <div class="people message-panel">
+            <div class="people-room col-md-3">
+                <div class="col-md-12">
+                    <ul class="list-group people-list">
+                        <li class="list-group-item" ng-repeat="room in public.socketNamespace.rooms">
+                            <span ng-bind="room.name"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-12">
+                    <ul class="list-group people-list">
+                        <li class="list-group-item" ng-repeat="person in public.people">
+                            <input type="checkbox" ng-model="person.selected" ng-checked="person.seelcted">
+                            <span ng-bind="person.name"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <dl ng-repeat="message in public.socketNamespace.messages" ng-class="message.type" class="chat-messages">
+                                    <dd ng-if="message.type === 'joined'" class="success-text">
+                                        <span>{{message.user.name}} has joined the chat room! </span>
+                                    </dd>
+                                    <dd ng-if="message.type === 'left'" class="error-text">
+                                        <span>{{message.user.name}} has left the chat room! </span>
+                                    </dd>
+                                    <dd ng-if="message.type === 'message'" class="info-text">
+                                        <span>{{message.user.name}} says: </span> <span>{{message.message}}</span>
+                                    </dd>
+                                    <dd ng-if="message.type === 'self'">
+                                        <span>Welcom {{message.user.name}}!!!</span>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="panel-heading container-fluid">
+                                <form class="row-fluid" ng-submit="public.send()">
+                                    <p class="col-md-10">
+                                        <input type="text" class="form-control chat-text" ng-enable="public.isConnected" ng-model="public.message" placeholder="type here...">
+                                    </p>
+                                    <div class="col-md-2">
+                                        <button type="button" ng-enable="public.isConnected" ng-click="public.send()" class="btn btn-primary send">Send</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
